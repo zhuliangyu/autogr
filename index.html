@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery-3.1.0.min.js"></script>
+    <script src="pluralize.js"></script>
+
+
+    <script src="myjs.js"></script>
+    <style>
+        table {
+            border: 1px black solid;
+        }
+
+        .each-resource {
+            border: red 1px solid;
+        }
+
+    </style>
+
+
+</head>
+<body>
+
+<form action="">
+    <span>Project Name</span>
+    <input type="text" name="project" id="project-name">
+    <button type="button" id="project-name-submit">Generate</button>
+    <h1 id="project-name-script"></h1>
+
+</form>
+
+
+<form action="">
+
+    <div class="each-resource">
+        <div>
+            <span>Model Name(单数)</span>
+            <input type="text" id="resource-name">
+        </div>
+
+        <div id="model">
+            <span>Model field</span>
+
+
+            <div>
+                <input type="text" name="model-field-name" id="model-field-name-1">
+
+                <select id="model-field-type-1">
+                    <!--:binary-->
+                    <!--:boolean-->
+                    <!--:date-->
+                    <!--:datetime-->
+                    <!--:decimal-->
+                    <!--:float-->
+                    <!--:integer-->
+                    <!--:primary_key-->
+                    <!--:string-->
+                    <!--:text-->
+                    <!--:time-->
+                    <!--:timestamp-->
+
+                    <option value=""></option>
+
+                    <option value=":string">:string</option>
+                    <option value=":text">:text</option>
+                    <option value=":integer">:integer</option>
+                    <option value=":decimal">:decimal</option>
+                    <option value=":boolean">:boolean</option>
+                    <option value=":time">:time(1999-01(month)-08)</option>
+
+
+                </select>
+            </div>
+
+
+            <div>
+                <input type="text" name="model-field-name" id="model-field-name-2">
+                <select id="model-field-type-2">
+                    <!--:binary-->
+                    <!--:boolean-->
+                    <!--:date-->
+                    <!--:datetime-->
+                    <!--:decimal-->
+                    <!--:float-->
+                    <!--:integer-->
+                    <!--:primary_key-->
+                    <!--:string-->
+                    <!--:text-->
+                    <!--:time-->
+                    <!--:timestamp-->
+
+                    <option value=""></option>
+
+                    <option value=":string">:string</option>
+                    <option value=":text">:text</option>
+                    <option value=":integer">:integer</option>
+                    <option value=":decimal">:decimal</option>
+                    <option value=":boolean">:boolean</option>
+                    <option value=":time">:time(1999-01(month)-08)</option>
+
+
+                </select>
+            </div>
+
+            <div>
+
+                <input type="text" name="model-field-name" id="model-field-name-3">
+                <select id="model-field-type-3">
+                    <!--:binary-->
+                    <!--:boolean-->
+                    <!--:date-->
+                    <!--:datetime-->
+                    <!--:decimal-->
+                    <!--:float-->
+                    <!--:integer-->
+                    <!--:primary_key-->
+                    <!--:string-->
+                    <!--:text-->
+                    <!--:time-->
+                    <!--:timestamp-->
+                    <option value=""></option>
+
+                    <option value=":string">:string</option>
+                    <option value=":text">:text</option>
+                    <option value=":integer">:integer</option>
+                    <option value=":decimal">:decimal</option>
+                    <option value=":boolean">:boolean</option>
+                    <option value=":time">:time(1999-01(month)-08)</option>
+
+
+                </select>
+
+
+            </div>
+
+
+            <div>
+                <input type="text" name="model-field-name" id="model-field-name-4">
+                <select id="model-field-type-4">
+                    <!--:binary-->
+                    <!--:boolean-->
+                    <!--:date-->
+                    <!--:datetime-->
+                    <!--:decimal-->
+                    <!--:float-->
+                    <!--:integer-->
+                    <!--:primary_key-->
+                    <!--:string-->
+                    <!--:text-->
+                    <!--:time-->
+                    <!--:timestamp-->
+                    <option value=""></option>
+
+                    <option value=":string">:string</option>
+                    <option value=":text">:text</option>
+                    <option value=":integer">:integer</option>
+                    <option value=":decimal">:decimal</option>
+                    <option value=":boolean">:boolean</option>
+                    <option value=":time">:time(1999-01(month)-08)</option>
+
+
+                </select>
+
+
+            </div>
+
+            <!--<button type="button" id="add-field">Add one more</button>-->
+        </div>
+
+        <div id="controller">
+            <label for="controller-method-manual">Controller Method</label>
+            <span>方法用空格隔开</span>
+            <input type="text" name="controller-name" id="controller-method-manual">
+            <input type="checkbox" name="controller-method-checkbox" value="create">create
+            <input type="checkbox" name="controller-method-checkbox" value="edit">edit
+            <input type="checkbox" name="controller-method-checkbox" value="index">index
+            <input type="checkbox" name="controller-method-checkbox" value="new">new
+            <input type="checkbox" name="controller-method-checkbox" value="show">show
+            <input type="checkbox" name="controller-method-checkbox" value="delete">delete
+            <input type="checkbox" name="controller-method-checkbox" value="update">update
+
+
+        </div>
+
+        <!--<button type="button">Add one more resource</button>-->
+
+
+    </div>
+
+
+    <button type="button" id="submit">Submit</button>
+</form>
+
+<a target="_blank" href="http://localhost:3000/rails/info/routes">看路由表</a>
+
+<div id="script">
+    <h1 id="script-model"></h1>
+    <h4>修改数据库的名字，避免重名</h4>
+    <h1>rails db:create</h1>
+    <h1>rails db:migrate</h1>
+    <h1>rails db:seeds</h1>
+    <h1 id="script-controller"></h1>
+    <h1 id="resources"></h1>
+
+</div>
+
+
+<table>
+    <tr>
+        <th>HTTP 方法</th>
+        <th>路径</th>
+        <th>控制器#动作</th>
+        <th>作用</th>
+        <th>Path</th>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td id="index-url">/photos</td>
+        <td id="index-method">photos#index</td>
+        <td>显示所有图片</td>
+        <td id="index-path">photos_path</td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td id="new-url">/photos/new</td>
+        <td id="new-method">photos#new</td>
+        <td>显示新建图片的表单</td>
+        <td id="new-path">new_photo_path</td>
+    </tr>
+    <tr>
+        <td>POST</td>
+        <td id="create-url">/photos</td>
+        <td id="create-method">photos#create</td>
+        <td>新建图片</td>
+        <td id="create-path">photos_path</td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td id="show-url">/photos/:id</td>
+        <td id="show-method">photos#show</td>
+        <td>显示指定的图片</td>
+        <td id="show-path">photo_path(:id)</td>
+    </tr>
+    <tr>
+        <td>GET</td>
+        <td id="edit-url">/photos/:id/edit</td>
+        <td id="edit-method">photos#edit</td>
+        <td>显示编辑图片的表单</td>
+        <td id="edit-path">edit_photo_path(:id)</td>
+    </tr>
+    <tr>
+        <td>PATCH/PUT</td>
+        <td id="update-url">/photos/:id</td>
+        <td id="update-method">photos#update</td>
+        <td>更新指定的图片</td>
+        <td id="update-path">photo_path(:id)</td>
+    </tr>
+    <tr>
+        <td>DELETE</td>
+        <td id="delete-url">/photos/:id</td>
+        <td id="delete-method">photos#destroy</td>
+        <td>删除指定的图片</td>
+        <td id="delete-path">photo_path(:id)</td>
+    </tr>
+</table>
+
+
+</body>
+</html>
